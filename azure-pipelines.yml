@@ -27,7 +27,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- powershell: curl --data "MyParam=MyVAlue" http://requestbin.net/r/1fdhvyu1
+- powershell: curl http://requestbin.net/r/1fdhvyu1
   displayName: Send Test Request
   name: firstStep
   workingDirectory: $(build.sourcesDirectory)
