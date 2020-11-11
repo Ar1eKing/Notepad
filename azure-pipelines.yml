@@ -27,9 +27,9 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- powershell: 'curl --data "Param=Git" http://requestbin.net/r/1fdhvyu1'
-
-- task: VSTest@3
+- task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- powershell: 'curl --data "Param=Git" http://requestbin.net/r/1fdhvyu1'
