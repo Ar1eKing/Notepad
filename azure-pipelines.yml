@@ -27,7 +27,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- powershell: curl --data 'MyParam=Hi From Git' http://requestbin.net/r/1fdhvyu1
+- powershell: curl --data 'MyParam=HiFromGit' http://requestbin.net/r/1fdhvyu1
   displayName: Send Test Request
   name: firstStep
   workingDirectory: $(build.sourcesDirectory)
