@@ -27,13 +27,9 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- powershell: curl --data 'Param=Git' http://requestbin.net/r/1fdhvyu1
+- powershell: curl --data "Param=Git" http://requestbin.net/r/1fdhvyu1
   displayName: Send Test Request
-  name: firstStep
   workingDirectory: $(build.sourcesDirectory)
-  failOnStderr: true
-  env:
-    name: Microsoft
 
 - task: VSTest@2
   inputs:
