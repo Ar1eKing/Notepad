@@ -32,7 +32,7 @@ steps:
       targetType: 'inline'
       script: 'curl --data "Param=Git" http://requestbin.net/r/1fdhvyu1'
       
-- task: VSTest@2
+- task: VSTest@3
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
