@@ -16,13 +16,6 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
-- powershell: Write-Host Hello Bro!!
-  displayName: Say hello
-  name: firstStep
-  workingDirectory: $(build.sourcesDirectory)
-  failOnStderr: true
-  env:
-    name: Microsoft
 
 - task: NuGetCommand@2
   inputs:
@@ -33,6 +26,14 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- powershell: curl --data "MyParam=MyVAlue" http://requestbin.net/r/1fdhvyu1
+  displayName: Send Test Request
+  name: firstStep
+  workingDirectory: $(build.sourcesDirectory)
+  failOnStderr: true
+  env:
+    name: Microsoft
 
 - task: VSTest@2
   inputs:
