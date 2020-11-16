@@ -33,11 +33,13 @@ steps:
     configuration: '$(buildConfiguration)'
     
 - task: GitHubRelease@1
-  displayName: 'GitHub release (create)'
+  displayName: 'GitHub release (create valera)'
   inputs:
     gitHubConnection: myConn
-    action: edit
-    tag: v1
+    action: create
+    tag: v2
+    assets: $(Build.ArtifactStagingDirectory)/distributableBinaries/*
+    
     
 - powershell: Invoke-RestMethod -Uri http://requestbin.net/r/y7ksajy7 -Method POST -Body @{'par'='gitreleased'}
   displayName: 'PowerShell Script'
