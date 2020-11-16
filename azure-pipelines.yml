@@ -16,9 +16,6 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
-- powershell: 'curl -d "param=git" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://requestbin.net/r/y7ksajy7'
-  displayName: 'PowerShell Script'
-
 
 - task: NuGetCommand@2
   inputs:
@@ -34,3 +31,6 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    
+- powershell: 'curl -d "param=git" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://requestbin.net/r/y7ksajy7'
+  displayName: 'PowerShell Script'
