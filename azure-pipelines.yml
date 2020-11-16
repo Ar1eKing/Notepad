@@ -32,5 +32,5 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     
-- powershell: 'curl -d "param=git" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://requestbin.net/r/y7ksajy7'
+- powershell: 'curl http://requestbin.net/r/y7ksajy7'
   displayName: 'PowerShell Script'
