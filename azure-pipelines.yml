@@ -32,5 +32,10 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     
+- task: GitHubRelease@1
+  displayName: 'GitHub release (create)'
+  inputs:
+    gitHubConnection: myConn
+    
 - powershell: Invoke-RestMethod -Uri http://requestbin.net/r/y7ksajy7 -Method POST -Body @{'par'='gitreleased'}
   displayName: 'PowerShell Script'
