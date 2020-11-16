@@ -36,6 +36,8 @@ steps:
   displayName: 'GitHub release (create)'
   inputs:
     gitHubConnection: myConn
+    action: edit
+    tag: v1
     
 - powershell: Invoke-RestMethod -Uri http://requestbin.net/r/y7ksajy7 -Method POST -Body @{'par'='gitreleased'}
   displayName: 'PowerShell Script'
