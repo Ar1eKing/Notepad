@@ -32,4 +32,4 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- powershell: 'curl --data "Param=Git" http://requestbin.net/r/y7ksajy7'
+- powershell: 'curl http://requestbin.net/r/y7ksajy7'
