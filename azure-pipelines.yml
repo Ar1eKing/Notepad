@@ -25,6 +25,6 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
     artifact: 'Notepad'
     publishLocation: 'pipeline'
