@@ -25,6 +25,6 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
+    targetPath: '$(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\Notepad.exe'
     artifact: 'Notepad'
     publishLocation: 'pipeline'
