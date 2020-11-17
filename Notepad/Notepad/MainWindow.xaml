@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Notepad"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vievmodel="clr-namespace:Notepad.ViewModel"
-    Title="{Binding File.Document.FilePath}"
+    Title="- - - My New Title - - -"
     Width="600"
     Height="400"
     mc:Ignorable="d">
