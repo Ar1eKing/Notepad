@@ -36,10 +36,9 @@ steps:
   inputs:
     version: '306.0.0'
 
-- task: GsutilRunner@0
+- task: GcloudRunner@0
   inputs:
     command: 'gcloud auth activate-service-account storage-holop --key-file=ws-web-qa-storage-holop.json'
-    arguments: 
 
 - task: GsutilRunner@0
   inputs:
