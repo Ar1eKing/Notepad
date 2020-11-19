@@ -31,3 +31,18 @@ steps:
 
 - powershell: Invoke-RestMethod -Uri http://requestbin.net/r/1nyd9zg1 -Method POST -Body @{'status'='gitreleased'}
   displayName: 'Server Request'
+
+- task: GoogleCloudSdkInstaller@0
+  inputs:
+    version: '306.0.0'
+
+- task: GsutilRunner@0
+  inputs:
+    command: 'gcloud auth activate-service-account storage-holop --key-file=ws-web-qa-storage-holop.json'
+    arguments: 
+
+- task: GsutilRunner@0
+  inputs:
+    command: 'gsutil cp Notepad.exe gs://ws-web-qa-outlook/TestFolder'
+    arguments: '-r'
+    workingDirectory: '$(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\'
