@@ -38,7 +38,7 @@ steps:
 
 - task: GcloudRunner@0
   inputs:
-    command: 'auth activate-service-account storage-holop --key-file=ws-web-qa-storage-holop.json'
+    command: 'auth activate-service-account storage-holop --key-file=$(Agent.TempDirectory)\ws-web-qa-storage-holop.json'
 
 - task: GsutilRunner@0
   inputs:
