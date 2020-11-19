@@ -38,10 +38,10 @@ steps:
 
 - task: GcloudRunner@0
   inputs:
-    command: 'gcloud auth activate-service-account storage-holop --key-file=ws-web-qa-storage-holop.json'
+    command: 'auth activate-service-account storage-holop --key-file=ws-web-qa-storage-holop.json'
 
 - task: GsutilRunner@0
   inputs:
-    command: 'gsutil cp Notepad.exe gs://ws-web-qa-outlook/TestFolder'
+    command: 'cp Notepad.exe gs://ws-web-qa-outlook/TestFolder'
     arguments: '-r'
     workingDirectory: '$(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\'
