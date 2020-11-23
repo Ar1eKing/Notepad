@@ -50,3 +50,4 @@ steps:
   inputs:
     command: 'cp $(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\Notepad.exe gs://ws-web-qa-outlook/TestFolder'
     arguments: '-r'
+    $env:CLOUDSDK_PYTHON="C:\hostedtoolcache\windows\Python\$env:python_version\x64\python"
