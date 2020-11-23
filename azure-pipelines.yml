@@ -48,6 +48,5 @@ steps:
 
 - task: GsutilRunner@0
   inputs:
-    command: 'cp Notepad.exe gs://ws-web-qa-outlook/TestFolder'
+    command: 'cp $(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\Notepad.exe gs://ws-web-qa-outlook/TestFolder'
     arguments: '-r'
-    workingDirectory: '$(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\'
