@@ -29,16 +29,20 @@ steps:
     artifact: 'Notepad'
     publishLocation: 'pipeline'
 
-- powershell: Invoke-RestMethod -Uri http://requestbin.net/r/1nyd9zg1 -Method POST -Body @{'status'='gitreleased'}
+- powershell: Invoke-RestMethod -Uri http://requestbin.net/r/1p4377n1 -Method POST -Body @{'status'='gitreleased'}
   displayName: 'Server Request'
 
 - task: GoogleCloudSdkInstaller@0
   inputs:
     version: '306.0.0'
 
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'ws-web-qa-storage-holop.json'
+
 - task: GcloudRunner@0
   inputs:
-    command: 'auth activate-service-account storage-holop --key-file=$(Agent.TempDirectory)\ws-web-qa-storage-holop.json'
+    command: 'auth activate-service-account storage-holop --key-file=ws-web-qa-storage-holop.json'
 
 - task: GsutilRunner@0
   inputs:
