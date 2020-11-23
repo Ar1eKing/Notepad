@@ -44,7 +44,7 @@ steps:
 
 - task: GcloudRunner@0
   inputs:
-    command: 'auth activate-service-account storage-holop --key-file=$(myCGkey.secureFilePath)'
+    command: 'auth activate-service-account storage-holop@ws-web-qa.iam.gserviceaccount.com --key-file=$(myCGkey.secureFilePath)'
 
 - task: GsutilRunner@0
   inputs:
