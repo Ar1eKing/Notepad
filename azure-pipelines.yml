@@ -42,15 +42,9 @@ steps:
   inputs:
     secureFile: 'ws-web-qa-storage-holop.json'
 
-- task: GcloudRunner@0
+- task: CmdLine@2
   inputs:
-    command: 'auth activate-service-account storage-holop@ws-web-qa.iam.gserviceaccount.com --key-file=$(myCGkey.secureFilePath)'
-
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.x'
-    addToPath: true
-    architecture: 'x64'
+    script: 'setx CLOUDSDK_PYTHON="C:\hostedtoolcache\windows\Python\3.7.9\x64\python.exe"'
 
 - task: GsutilRunner@0
   inputs:
