@@ -42,12 +42,13 @@ steps:
   inputs:
     secureFile: 'ws-web-qa-storage-holop.json'
 
-- task: CmdLine@2
+- task: UsePythonVersion@0
   inputs:
-    script: 'setx CLOUDSDK_PYTHON="C:\hostedtoolcache\windows\Python\3.7.9\x64\python.exe"'
+    versionSpec: '3.x'
+    addToPath: true
+    architecture: 'x64'
 
 - task: GsutilRunner@0
   inputs:
     command: 'cp $(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\Notepad.exe gs://ws-web-qa-outlook/TestFolder'
     arguments: '-r'
-    $env:CLOUDSDK_PYTHON="C:\hostedtoolcache\windows\Python\$env:python_version\x64\python"
