@@ -17,11 +17,11 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
+- task: BuildInstaller@1
   inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    installTaskMode: 'solution'
+    SlnPath: '$(solution)'
+    VsVersion: 'VS2017'
 
 - task: PublishPipelineArtifact@1
   inputs:
@@ -29,26 +29,5 @@ steps:
     artifact: 'Notepad'
     publishLocation: 'pipeline'
 
-- powershell: Invoke-RestMethod -Uri http://requestbin.net/r/1p4377n1 -Method POST -Body @{'status'='gitreleased'}
+- powershell: Invoke-RestMethod -Uri http://requestbin.net/r/11ua3wo1 -Method POST -Body @{'status'='gitreleased'}
   displayName: 'Server Request'
-
-- task: GoogleCloudSdkInstaller@0
-  inputs:
-    version: '306.0.0'
-
-- task: DownloadSecureFile@1
-  name: myCGkey
-  displayName: 'Download secure file'
-  inputs:
-    secureFile: 'ws-web-qa-storage-holop.json'
-
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.7.9'
-    addToPath: true
-    architecture: 'x64'
-
-- task: GsutilRunner@0
-  inputs:
-    command: 'cp $(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\Notepad.exe gs://ws-web-qa-outlook/TestFolder'
-    arguments: '-r'
