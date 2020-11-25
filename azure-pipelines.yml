@@ -17,6 +17,7 @@ steps:
   inputs:
     solution: '**\*.sln'
     vsVersion: 'latest'
+    buildCfg: 'Release'
 
 - task: PublishPipelineArtifact@1
   inputs:
