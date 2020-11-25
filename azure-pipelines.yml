@@ -15,9 +15,10 @@ steps:
 
 - task: DevEnvBuild@2
   inputs:
-    solution: '**\*.sln'    
-    vsVersion: 'latest'
+    solution: '**\*.sln'
     project: 'NotepadSetup'
+    buildCfg: 'Release'
+    vsVersion: '16.0'
 
 - task: PublishPipelineArtifact@1
   inputs:
