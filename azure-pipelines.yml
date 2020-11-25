@@ -13,11 +13,10 @@ variables:
 steps:
 - task: NuGetToolInstaller@1
 
-- task: BuildInstaller@1
+- task: DevEnvBuild@2
   inputs:
-    installTaskMode: 'solution'
-    SlnPath: '$(solution)'
-    VsVersion: 'VS2017'
+    solution: '**\*.sln'
+    vsVersion: 'latest'
 
 - task: PublishPipelineArtifact@1
   inputs:
