@@ -16,6 +16,7 @@ steps:
 - task: DevEnvBuild@2
   inputs:
     solution: '**\*.sln'
+    project: 'NotepadSetup'
     vsVersion: 'latest'
     buildCfg: 'Release'
 
