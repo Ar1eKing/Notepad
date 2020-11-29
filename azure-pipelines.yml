@@ -31,5 +31,16 @@ steps:
     artifact: 'Notepad'
     publishLocation: 'pipeline'
 
-- powershell: Invoke-RestMethod -Uri http://requestbin.net/r/11ua3wo1 -Method POST -Body @{'status'='gitreleased'}
-  displayName: 'Server Request'
+- task: DownloadSecureFile@1
+  name: myCer
+  displayName: 'Download secure file'
+  inputs:
+    secureFile: 'vcita_systems_ltd.p12'
+
+- task: codesigning@2
+  inputs:
+    secureFileId: 'vcita_systems_ltd.p12'
+    signCertPassword: 'qwer1234'
+    files: '$(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\Notepad.exe'
+    timeServer: 'http://timestamp.digicert.com'
+    hashingAlgorithm: 'SHA256'
