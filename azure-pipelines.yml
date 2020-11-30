@@ -41,6 +41,12 @@ steps:
   inputs:
     version: '306.0.0'
 
+- task: DownloadSecureFile@1
+  name: myCGkey
+  displayName: 'Download secure file'
+  inputs:
+    secureFile: 'ws-web-qa-storage-holop.json'
+
 - task: GcloudRunner@0
   inputs:
     command: 'auth activate-service-account storage-holop@ws-web-qa.iam.gserviceaccount.com --key-file=$(myCGkey.secureFilePath)'
