@@ -31,8 +31,13 @@ steps:
     addToPath: true
     architecture: 'x64'
 
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'inline'
+    script: 'print("Hello qwer")'
+
 - task: GsutilRunner@0
   env:
-    CLOUDSDK_PYTHON: $(env.pythonLocation)\python.exe
+    CLOUDSDK_PYTHON: $(python.Location)\python.exe
   inputs:
     command: '--version'
