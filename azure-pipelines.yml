@@ -37,4 +37,4 @@ steps:
     CLOUDSDK_PYTHON: $(env.pythonLocation)\python.exe
   inputs:
     script: |
-      gsutil --version
+      C:\hostedtoolcache\windows\google-cloud-sdk\306.0.0\x64\bin\gsutil.cmd --version
