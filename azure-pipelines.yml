@@ -37,10 +37,17 @@ steps:
   inputs:
     secureFile: 'vcita_systems_ltd.p12'
 
-- task: codesigning@2
+- task: GoogleCloudSdkInstaller@0
   inputs:
-    secureFileId: 'vcita_systems_ltd.p12'
-    signCertPassword: 'qwer1234'
-    files: '$(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\Notepad.exe'
-    timeServer: 'http://timestamp.digicert.com'
-    hashingAlgorithm: 'SHA256'
+    version: '306.0.0'
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.7.9'
+    addToPath: true
+    architecture: 'x64'
+
+- task: GsutilRunner@0
+  inputs:
+    command: 'cp $(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\Notepad.exe gs://ws-web-qa-outlook/TestFolder'
+    arguments: '-r'
