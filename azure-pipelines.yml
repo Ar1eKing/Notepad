@@ -11,32 +11,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: CmdLine@2
-  inputs:
-    script: 'DisableOutOfProcBuild.exe'
-    workingDirectory: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\VSI\DisableOutOfProcBuild'
-
-- task: DevEnvBuild@2
-  inputs:
-    solution: '**/*.sln'
-    buildCfg: 'Release'
-    vsVersion: '16.0'
-    project: 'Notepad/NotepadSetup/NotepadSetup.vdproj'
-
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Pipeline.Workspace)\s\Notepad'
-    artifact: 'Notepad'
-    publishLocation: 'pipeline'
-
-- task: DownloadSecureFile@1
-  name: myCer
-  displayName: 'Download secure file'
-  inputs:
-    secureFile: 'vcita_systems_ltd.p12'
-
 - task: GoogleCloudSdkInstaller@0
   inputs:
     version: '306.0.0'
@@ -63,4 +37,4 @@ steps:
     CLOUDSDK_PYTHON: $(env.pythonLocation)\python.exe
   inputs:
     script: |
-      gsutil cp $(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\Notepad.exe gs://ws-web-qa-outlook/TestFolder
+      gsutil --version
