@@ -31,13 +31,13 @@ steps:
     addToPath: true
     architecture: 'x64'
 
+- task: GsutilRunner@0
+  env:
+    CLOUDSDK_PYTHON: 'C:\hostedtoolcache\windows\Python\3.7.9\x64\python.exe'
+  inputs:
+    command: '--version'
+
 - task: PythonScript@0
   inputs:
     scriptSource: 'inline'
-    script: 'print("Hello qwer")'
-
-- task: GsutilRunner@0
-  env:
-    CLOUDSDK_PYTHON: $(python.Location)\python.exe
-  inputs:
-    command: '--version'
+    script: 'print($(env.pythonLocation))'
