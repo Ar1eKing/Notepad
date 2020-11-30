@@ -31,9 +31,8 @@ steps:
     addToPath: true
     architecture: 'x64'
 
-- task: PowerShell@2
+- task: GsutilRunner@0
   env:
     CLOUDSDK_PYTHON: $(env.pythonLocation)\python.exe
   inputs:
-    targetType: 'inline'
-    script: 'gsutil --version'
+    command: '--version'
