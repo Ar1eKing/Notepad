@@ -33,7 +33,7 @@ steps:
 
 - task: GsutilRunner@0
   inputs:
-    command: 
+    command: gsutil
     arguments: '--version'
 
 - task: CmdLine@2
