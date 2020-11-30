@@ -61,5 +61,4 @@ steps:
   env:
     CLOUDSDK_PYTHON: 'C:\hostedtoolcache\windows\Python\3.7.9\x64\python.exe'
   inputs:
-    command: 'cp $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi gs://ws-web-qa-outlook'
-    arguments: '-r'
+    command: 'cp $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi gs://ws-web-qa-outlook/TestFolder'
