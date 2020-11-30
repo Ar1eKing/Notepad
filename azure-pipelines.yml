@@ -31,15 +31,9 @@ steps:
     addToPath: true
     architecture: 'x64'
 
-- task: GsutilRunner@0
-  inputs:
-    command: gsutil
-    arguments: '--version'
-
-- task: CmdLine@2
-  name: "Push_To_GCloud"
+- task: PowerShell@2
   env:
     CLOUDSDK_PYTHON: $(env.pythonLocation)\python.exe
   inputs:
-    script: |
-      C:\hostedtoolcache\windows\google-cloud-sdk\306.0.0\x64\bin\gsutil.cmd --version
+    targetType: 'inline'
+    script: 'gsutil --version'
