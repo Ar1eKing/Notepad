@@ -41,13 +41,20 @@ steps:
   inputs:
     version: '306.0.0'
 
+- task: GcloudRunner@0
+  inputs:
+    command: 'auth activate-service-account storage-holop@ws-web-qa.iam.gserviceaccount.com --key-file=$(myCGkey.secureFilePath)'
+
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.7.9'
     addToPath: true
     architecture: 'x64'
 
-- task: GsutilRunner@0
+- task: CmdLine@2
+  name: "Push_To_GCloud" 
   inputs:
-    command: 'cp $(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\Notepad.exe gs://ws-web-qa-outlook/TestFolder'
-    arguments: '-r'
+    script: |
+      gsutil cp $(Pipeline.Workspace)\s\Notepad\Notepad\bin\Release\Notepad.exe gs://ws-web-qa-outlook/TestFolder
+  env:
+    CLOUDSDK_PYTHON: ${{env.pythonLocation}}\python.exe
