@@ -25,6 +25,15 @@ steps:
     vsVersion: '16.0'
     project: 'Notepad/NotepadSetup/NotepadSetup.vdproj'
 
+- task: CmdLine@2
+  inputs:
+    script: |
+      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\Local
+      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\Prod
+      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\QA
+      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\QA2
+      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\QA3
+
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)\s\Notepad'
@@ -61,4 +70,4 @@ steps:
   env:
     CLOUDSDK_PYTHON: 'C:\hostedtoolcache\windows\Python\3.7.9\x64\python.exe'
   inputs:
-    command: 'cp $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi gs://ws-web-qa-outlook/TestFolder'
+    command: 'cp -r $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers gs://ws-web-qa-outlook/TestFolder'
