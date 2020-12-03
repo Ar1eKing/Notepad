@@ -28,11 +28,11 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\Local
-      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\Prod
-      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\QA
-      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\QA2
-      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\QA3
+      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\Local\NotepadSetup.msi
+      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\Prod\NotepadSetup.msi
+      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\QA\NotepadSetup.msi
+      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\QA2\NotepadSetup.msi
+      xcopy /s /i /y $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Release\NotepadSetup.msi $(Pipeline.Workspace)\s\Notepad\NotepadSetup\Installers\QA3\NotepadSetup.msi
 
 - task: PublishPipelineArtifact@1
   inputs:
